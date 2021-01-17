@@ -97,7 +97,7 @@ export default function Header({
 
       <Switch>
         {/* for deployment */}
-        <Route path="/ca3-startcode">
+        <Route path="/2021">
           <Redirect to="/" />
         </Route>
         <Route exact path="/">

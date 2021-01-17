@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DIRECTORY="eksamen-frontend" # Directory name
+DIRECTORY="2021" # Directory name
 DROPLET_URL="datpmr.dk" # Your own URL
 
 echo "##############################"
