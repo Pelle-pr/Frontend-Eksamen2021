@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import contactFacade from "../facades/contactFacade";
-import { Button, ButtonToolbar } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import printError from "../utils/error";
 import {

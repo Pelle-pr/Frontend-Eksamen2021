@@ -36,12 +36,36 @@ const crmFacade = () => {
     ).then(handleHttpErrors);
   };
 
+  const addTask = (id, task) => {
+    return fetch(
+      URL + "/api/task/" + id,
+      apiFacade.makeOptions("POST", true, task)
+    ).then(handleHttpErrors);
+  };
+
+  const getTaskStatus = () => {
+    return fetch(
+      URL + "/api/task/status",
+      apiFacade.makeOptions("GET", true)
+    ).then(handleHttpErrors);
+  };
+
+  const getTaskType = () => {
+    return fetch(
+      URL + "/api/task/type",
+      apiFacade.makeOptions("GET", true)
+    ).then(handleHttpErrors);
+  };
+
   return {
     addContact,
     getAllContacts,
     getContactById,
     editContact,
     deleteContact,
+    addTask,
+    getTaskStatus,
+    getTaskType,
   };
 };
 

@@ -1,6 +1,6 @@
 import "../styles/App.css";
 import "../styles/Navbar.css";
-import React, { useState } from "react";
+import React from "react";
 import { Switch, Route, NavLink, Redirect } from "react-router-dom";
 import { Nav } from "react-bootstrap";
 import { Login } from "./Login";
@@ -14,6 +14,7 @@ import Contacts from "./Contacts";
 import Edit from "./EditContact";
 import AddOpp from "./AddOpp";
 import Opportunities from "./Opportunities";
+import AddTask from "./AddTask";
 
 export default function Header({
   isLoggedIn,
@@ -36,26 +37,17 @@ export default function Header({
             Home
           </NavLink>
         </li>
-        <li>
-          <NavLink activeClassName="active" to="/add-contact">
-            Add Contact
-          </NavLink>
-        </li>
-        <li>
-          <NavLink activeClassName="active" to="/all-contacts">
-            All Contacts
-          </NavLink>
-        </li>
+
         {isLoggedIn && (
           <React.Fragment>
             <li>
-              <NavLink activeClassName="active" to="/example">
-                Example
+              <NavLink activeClassName="active" to="/add-contact">
+                Add Contact
               </NavLink>
             </li>
             <li>
-              <NavLink activeClassName="active" to="/students">
-                Students
+              <NavLink activeClassName="active" to="/all-contacts">
+                All Contacts
               </NavLink>
             </li>
           </React.Fragment>
@@ -66,6 +58,15 @@ export default function Header({
               <NavLink activeClassName="active" to="/admin">
                 Admin
               </NavLink>
+            </li>
+            <li>
+              <button className="navButton" onClick={handleRegister}>
+                Register
+              </button>
+              <Register
+                handleShowRegister={handleRegister}
+                showRegister={showRegister}
+              />
             </li>
           </React.Fragment>
         )}
@@ -80,15 +81,6 @@ export default function Header({
                 showLogin={showLogin}
                 isLoggedIn={isLoggedIn}
                 setLoginStatus={setLoginStatus}
-              />
-            </Nav.Item>
-            <Nav.Item>
-              <button className="navButton" onClick={handleRegister}>
-                Register
-              </button>
-              <Register
-                handleShowRegister={handleRegister}
-                showRegister={showRegister}
               />
             </Nav.Item>
           </React.Fragment>
@@ -132,6 +124,9 @@ export default function Header({
         </Route>
         <Route path="/get-opp/:id">
           <Opportunities />
+        </Route>
+        <Route path="/add-task/:id">
+          <AddTask />
         </Route>
         <Route>
           <NoMatch />

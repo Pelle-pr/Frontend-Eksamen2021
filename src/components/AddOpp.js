@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import facade from "../facades/opportunityFacade";
 import printError from "../utils/error";
