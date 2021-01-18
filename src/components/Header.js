@@ -11,6 +11,7 @@ import Register from "./Register";
 import NoMatch from "./NoMatch";
 import PrivateRoute from "./PrivateRoute";
 import Students from "./Students";
+import AddContact from "./AddContact";
 
 export default function Header({
   isLoggedIn,
@@ -31,6 +32,11 @@ export default function Header({
         <li>
           <NavLink exact activeClassName="selected" to="/">
             Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink activeClassName="active" to="/add-contact">
+            Add Contact
           </NavLink>
         </li>
         {isLoggedIn && (
@@ -110,6 +116,9 @@ export default function Header({
         />
         <Route path="/students" isLoggedIn={isLoggedIn} component={Students} />
         <PrivateRoute path="/admin" isLoggedIn={isLoggedIn} component={Admin} />
+        <Route path="/add-contact">
+          <AddContact />
+        </Route>
         <Route>
           <NoMatch />
         </Route>
