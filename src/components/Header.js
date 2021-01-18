@@ -12,6 +12,8 @@ import PrivateRoute from "./PrivateRoute";
 import AddContact from "./AddContact";
 import Contacts from "./Contacts";
 import Edit from "./EditContact";
+import AddOpp from "./AddOpp";
+import Opportunities from "./Opportunities";
 
 export default function Header({
   isLoggedIn,
@@ -124,6 +126,12 @@ export default function Header({
         </Route>
         <Route path="/edit/:id">
           <Edit />
+        </Route>
+        <Route path="/add-opp/:id">
+          <AddOpp />
+        </Route>
+        <Route path="/get-opp/:id">
+          <Opportunities />
         </Route>
         <Route>
           <NoMatch />

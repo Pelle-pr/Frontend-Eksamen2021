@@ -46,6 +46,7 @@ export default function Contacts() {
             <th>Phone</th>
             <th></th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -71,6 +72,16 @@ export default function Contacts() {
                 >
                   Delete
                 </Button>
+              </td>
+              <td>
+                <Link to={`/add-opp/${contact.id}`}>
+                  <Button variant="success">Add Opportunity</Button>
+                </Link>
+              </td>
+              <td>
+                <Link to={`/get-opp/${contact.id}`}>
+                  <Button variant="info">Get Opportunities</Button>
+                </Link>
               </td>
             </tr>
           ))}
