@@ -5,13 +5,13 @@ import { Switch, Route, NavLink, Redirect } from "react-router-dom";
 import { Nav } from "react-bootstrap";
 import { Login } from "./Login";
 import Home from "./Home";
-import Example from "./Example";
 import Admin from "./Admin";
 import Register from "./Register";
 import NoMatch from "./NoMatch";
 import PrivateRoute from "./PrivateRoute";
-import Students from "./Students";
 import AddContact from "./AddContact";
+import Contacts from "./Contacts";
+import Edit from "./EditContact";
 
 export default function Header({
   isLoggedIn,
@@ -37,6 +37,11 @@ export default function Header({
         <li>
           <NavLink activeClassName="active" to="/add-contact">
             Add Contact
+          </NavLink>
+        </li>
+        <li>
+          <NavLink activeClassName="active" to="/all-contacts">
+            All Contacts
           </NavLink>
         </li>
         {isLoggedIn && (
@@ -109,15 +114,16 @@ export default function Header({
         <Route exact path="/">
           <Home />
         </Route>
-        <PrivateRoute
-          path="/example"
-          isLoggedIn={isLoggedIn}
-          component={Example}
-        />
-        <Route path="/students" isLoggedIn={isLoggedIn} component={Students} />
+
         <PrivateRoute path="/admin" isLoggedIn={isLoggedIn} component={Admin} />
         <Route path="/add-contact">
           <AddContact />
+        </Route>
+        <Route path="/all-contacts">
+          <Contacts />
+        </Route>
+        <Route path="/edit/:id">
+          <Edit />
         </Route>
         <Route>
           <NoMatch />
